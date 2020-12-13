@@ -12,6 +12,9 @@ const Header: NextPage<compProps> = ({ currentPage }) => {
 
     const [showProfileOptions, setShowProfileOptions] = useState<boolean>(true)
 
+
+    const changeDisplay = () => setShowProfileOptions(p => !p)
+
     return (
 
         <>
@@ -20,7 +23,7 @@ const Header: NextPage<compProps> = ({ currentPage }) => {
                 <div>
                     <span className="icon" ><IoIosNotifications /></span>
                     <span className="profile" >
-                        <img src="https://picsum.photos/200?grayscale" alt="dp" className="dp" onClick={() => setShowProfileOptions(p => !p)} />
+                        <img src="https://picsum.photos/200?grayscale" alt="dp" className="dp" onClick={changeDisplay} onBlur={changeDisplay} />
                         <ProfileOptions show={showProfileOptions} key={showProfileOptions.toString()} />
                     </span>
                 </div>
